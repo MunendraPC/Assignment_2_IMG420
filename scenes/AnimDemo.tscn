@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/TransformAnimatorSprite2D.gd" id=1]
+[ext_resource type="Texture2D" path="res://blueorb.png" id=2]
+
+[node name="AnimDemo" type="Node2D"]
+
+[node name="Coin" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+position = Vector2(100, 100)
+script = ExtResource("1")
+
+[node name="AutoPlay" type="Timer" parent="."]
+autostart = true
+one_shot = true
+wait_time = 0.1
+
+[connection signal="timeout" from="AutoPlay" to="Coin" method="play"]
